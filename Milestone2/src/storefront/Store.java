@@ -91,6 +91,7 @@ public class Store {
 							} 
 						}
 						
+						// Add a new product if the product wasn't in the shopping cart
 						Product newProduct = new Product();
 						newProduct.setName(productName);
 						newProduct.setQuantity(quantity);
@@ -99,6 +100,7 @@ public class Store {
 						return true;
 					}
 					else {
+						// Create a new product if the shopping cart was empty
 						Product newProduct = new Product();
 						newProduct.setName(productName);
 						newProduct.setQuantity(quantity);
@@ -129,14 +131,18 @@ public class Store {
     		// Loop through shoppingCart
 			for(int s = 0; s < shoppingCart.size(); s++) {
 			    Product currentProduct = shoppingCart.get(s);
+			    // Check for product name match
 			    if(currentProduct.getName().compareTo(productName) == 0) {
+			    	// Check quantity
 					if(currentProduct.getQuantity() == quantity || currentProduct.getQuantity() < quantity) {
+						// Remove the product from the shopping cart
 					    shoppingCart.remove(s);
 					    System.out.println();
 					    System.out.println("Item removed from shopping cart.");
 					    return true;
 					}
 					else if (currentProduct.getQuantity() > quantity) {
+						// Decrease shopping cart product quantity
 					    currentProduct.setQuantity(currentProduct.getQuantity() - quantity);
 					    System.out.println();
 					    System.out.println("Item removed from shopping cart.");
@@ -231,11 +237,14 @@ public class Store {
      * Void method that prints the inventory
      */
     public void showInventory() {
+    	// Loop through inventory
     	this.getInventory().forEach(i -> {
+    		// Print product details
 		    System.out.println("Product: " + i.getName());
 		    System.out.println("Description: " + i.getDescription());
 		    System.out.println("Price: " + i.getPrice());
 		    System.out.println("Qty: " + i.getQuantity());
+		    // Check for instance each subclass
 		    if (i instanceof Armor) {
 		    	System.out.println("Resistance: " + ((Armor) i).getResistance());
 		    	System.out.println();
