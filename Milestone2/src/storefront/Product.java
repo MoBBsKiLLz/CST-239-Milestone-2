@@ -28,6 +28,7 @@ public class Product {
      * Product constructor with parameters name, description and quantity
      * @param name Name parameter of type String
      * @param description Description parameter of type String
+     * @param price Price parameter of type double
      * @param quantity Quantity parameter of type int
      */
     public Product(String name, String description, double price, int quantity) {
@@ -79,7 +80,7 @@ public class Product {
     
     /**
      * Sets the price of the Product taking a parameter
-     * @param description price parameter as a double
+     * @param price Price parameter as a double
      */
 	public void setPrice(double price) {
 		this.price = price;
