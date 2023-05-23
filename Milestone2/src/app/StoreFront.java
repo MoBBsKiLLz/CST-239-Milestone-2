@@ -42,7 +42,7 @@ public class StoreFront {
 		armor.add(armor1);
 		armor.add(armor2);
 		
-		// Add armor to the inventory
+		// Add armor list to the inventory
 		myStore.setInventory(armor);
 		
 		// Create 2 weapons for inventory
